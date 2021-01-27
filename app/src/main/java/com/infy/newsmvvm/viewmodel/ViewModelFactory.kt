@@ -15,7 +15,7 @@ class ViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(NewsViewModel::class.java))
-            return NewsViewModel(NewsRepository(context)) as T
+            return NewsViewModel(NewsRepository()) as T
         return super.create(modelClass)
     }
 }

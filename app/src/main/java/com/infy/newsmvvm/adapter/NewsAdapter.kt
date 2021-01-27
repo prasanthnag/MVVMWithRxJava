@@ -37,7 +37,8 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     }
 
 
-    class NewsViewHolder(private var binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
+    class NewsViewHolder(private var binding: ItemNewsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(news: NewsDetails) {
             binding.news = news
         }

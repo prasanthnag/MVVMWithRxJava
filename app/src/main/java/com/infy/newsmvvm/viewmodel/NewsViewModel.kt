@@ -13,9 +13,13 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
-    var newsDetailsLiveData: MutableLiveData<ArrayList<NewsDetails>> = MutableLiveData()
+    //var newsDetailsLiveData: MutableLiveData<ArrayList<NewsDetails>> = MutableLiveData()
 
-    init {
+    val newsDetailsLiveData by lazy {
+        newsRepository.newsLiveData
+    }
+
+    /*init {
         callApi()
     }
 
@@ -45,6 +49,6 @@ class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
                 newsDetailsLiveData.postValue(null)
             }
         }
-    }
+    }*/
 
 }
