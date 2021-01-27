@@ -1,11 +1,11 @@
 package com.infy.newsmvvm.api
 
-import android.database.Observable
-import com.infy.newsmvvm.model.NewsDetails
+import com.infy.newsmvvm.model.NewsResponse
+import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface ApiRepository {
 
     @GET("facts.json")
-    fun getFacts() : Observable<NewsDetails>
+    fun getNewsDetails(): Observable<NewsResponse>
 }
