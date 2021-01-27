@@ -33,7 +33,23 @@ class NewsRepository {
                 }
 
                 override fun onNext(t: NewsResponse) {
-                    newsLiveData.postValue(t.newsDetails)
+                    val newsDetails = t.newsDetails
+                    if (newsDetails.contains(
+                            NewsDetails(
+                                title = null,
+                                description = null,
+                                imageRef = null
+                            )
+                        )
+                    )
+                        newsDetails.remove(
+                            NewsDetails(
+                                title = null,
+                                description = null,
+                                imageRef = null
+                            )
+                        )
+                    newsLiveData.postValue(newsDetails)
                 }
 
                 override fun onError(e: Throwable) {
