@@ -1,6 +1,5 @@
 package com.infy.newsmvvm.viewmodel
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.infy.newsmvvm.model.NewsDetails
@@ -18,7 +17,6 @@ class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
         getNewsDetails()
     }
 
-    @SuppressLint("CheckResult")
     private fun getNewsDetails() {
         val disposable = newsRepository.getNewsDetails().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread()).subscribe({
